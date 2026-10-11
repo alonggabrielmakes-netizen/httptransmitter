@@ -4,7 +4,9 @@ import json
 #  MUST be at TOP LEVEL — that's what Vercel wants!
 app = Flask(__name__)
 CORS(app)
-
+@app.route("/", methods=["GET"])
+def page():
+    return "Hi"
 @app.route("/", methods=["POST", "OPTIONS"])
 def index():
     if request.method == "OPTIONS":
