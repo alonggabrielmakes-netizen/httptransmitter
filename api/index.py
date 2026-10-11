@@ -10,14 +10,7 @@ def index():
     if request.method == "OPTIONS":
         return "", 200
     
-    data = {}
-    raw_text = request.get_data(as_text=True)
-    if raw_text:
-        try:
-            data = json.loads(raw_text)
-        except json.JSONDecodeError:
-            print("Invalid JSON received")
-    input_value = data.get("value", "")
+    input_value = request.form.get("value", "")
     print(f"Received: {input_value}")
     
     # Example: flip bits
