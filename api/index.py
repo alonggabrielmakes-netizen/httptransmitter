@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
-# ✅ MUST be at TOP LEVEL — that's what Vercel wants!
+import json
+#  MUST be at TOP LEVEL — that's what Vercel wants!
 app = Flask(__name__)
 CORS(app)
 
@@ -10,7 +10,13 @@ def index():
     if request.method == "OPTIONS":
         return "", 200
     
-    data = request.json
+    data = {}
+    raw_text = request.get_data(as_text=True)
+    if raw_text:
+        try:
+            data = json.loads(raw_text)
+        except json.JSONDecodeError:
+            print("Invalid JSON received")
     input_value = data.get("value", "")
     print(f"Received: {input_value}")
     
