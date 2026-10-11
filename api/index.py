@@ -12,7 +12,7 @@ def page():
   <body>
     bro are you an idiot
   </body>
-</html> """
+</html> """, 200
 @app.route("/", methods=["POST", "OPTIONS"])
 def index():
     if request.method == "OPTIONS":
