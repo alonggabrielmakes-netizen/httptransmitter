@@ -6,13 +6,7 @@ app = Flask(__name__)
 CORS(app)
 @app.route("/", methods=["GET"])
 def page():
-    return """
-<html>
-  <head> <meta charset="utf-8"> </head>
-  <body>
-    bro are you an idiot
-  </body>
-</html> """, 200
+    return "hi"
 @app.route("/", methods=["POST", "OPTIONS"])
 def index():
     if request.method == "OPTIONS":
