@@ -10,7 +10,7 @@ def index_get():
     print(f"GET Received: {input_value}")
     output_value = "".join("1" if c == "0" else "0" for c in input_value)
     return Response(
-         json.dumps({"value": output_value}),
+         json.dumps({"value": output_value}, separators=(",", ":")),
          status=200,
          mimetype="application/json"
     )
