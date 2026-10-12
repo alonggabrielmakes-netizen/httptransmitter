@@ -1,4 +1,4 @@
-from flask import Flask, request, Response
+from flask import Flask, request, Response, jsonify
 from flask_cors import CORS
 import json #useless?
 #  MUST be at TOP LEVEL — that's what Vercel wants!
