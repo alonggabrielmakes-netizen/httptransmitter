@@ -10,7 +10,7 @@ def index_get():
     print(f"GET Received: {input_value}")
     output_value = "".join("1" if c == "0" else "0" for c in input_value)
     return Response(
-         "\{\"value\":{output_value}\}", #Build logic likes no spaces
+         f"\{\"value\":{output_value}\}", #Build logic likes no spaces
          status=200,
          mimetype="application/json"
     )
@@ -26,7 +26,7 @@ def index():
     output_value = "".join("1" if c == "0" else "0" for c in input_value)
     
     return Response(
-        "\{\"value\":{output_value}\}",
+        f"\{\"value\":{output_value}\}",
         status=200,
         mimetype="application/json"
     )
