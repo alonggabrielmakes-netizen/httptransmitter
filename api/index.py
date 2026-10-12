@@ -3,7 +3,7 @@ from flask_cors import CORS
 import json
 #  MUST be at TOP LEVEL — that's what Vercel wants!
 app = Flask(__name__)
-CORS(app)
+CORS(app) #CORS header
 @app.route("/", methods=["GET"])
 def index_get():
     input_value = request.args.get("value", "")
