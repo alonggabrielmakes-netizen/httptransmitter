@@ -26,7 +26,7 @@ def index():
     output_value = "".join("1" if c == "0" else "0" for c in input_value)
     
     return Response(
-        json.dumps({"value": output_value}),
+        jsonify({"value": output_value}),
         status=200,
         mimetype="application/json"
     )
