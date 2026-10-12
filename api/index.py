@@ -1,9 +1,12 @@
-from flask import Flask, request, Response, jsonify
+from flask import Flask, request, Response
 from flask_cors import CORS
 import json #useless?
 #  MUST be at TOP LEVEL — that's what Vercel wants!
 app = Flask(__name__)
 CORS(app) #CORS header
+def jsonify(data):
+    key, value = next(iter(data.items()))
+    return f'{{"{key}":"{value}"}}', 200, {"Content-Type": "application/json"}
 @app.route("/", methods=["GET"])
 def index_get():
     input_value = request.args.get("value", "")
