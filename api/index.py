@@ -5,9 +5,6 @@ import json
 app = Flask(__name__)
 CORS(app)
 @app.route("/", methods=["GET"])
-def page():
-    return "<h1> Oh hi guys </hi>"
-@app.route("/", methods=["GET"])
 def index_get():
     input_value = request.args.get("value", "")
     print(f"GET Received: {input_value}")
