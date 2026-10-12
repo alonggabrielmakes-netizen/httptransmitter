@@ -1,4 +1,4 @@
-from flask import Flask, request, Response
+from flask import Flask, request, Response, jsonify
 from flask_cors import CORS
 import json
 #  MUST be at TOP LEVEL — that's what Vercel wants!
@@ -10,7 +10,7 @@ def index_get():
     print(f"GET Received: {input_value}")
     output_value = "".join("1" if c == "0" else "0" for c in input_value)
     return Response(
-         json.dumps({"value": output_value}, separators=(",", ":")),
+         jsonify({"value": output_value})
          status=200,
          mimetype="application/json"
     )
