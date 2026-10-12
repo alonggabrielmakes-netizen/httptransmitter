@@ -1,6 +1,6 @@
 from flask import Flask, request, Response, jsonify
 from flask_cors import CORS
-import json
+import json #useless?
 #  MUST be at TOP LEVEL — that's what Vercel wants!
 app = Flask(__name__)
 CORS(app) #CORS header
@@ -10,7 +10,7 @@ def index_get():
     print(f"GET Received: {input_value}")
     output_value = "".join("1" if c == "0" else "0" for c in input_value)
     return Response(
-         jsonify({"value": output_value}) #Build logic likes no spaces
+         "\{\"value\":{output_value}\}", #Build logic likes no spaces
          status=200,
          mimetype="application/json"
     )
@@ -26,7 +26,7 @@ def index():
     output_value = "".join("1" if c == "0" else "0" for c in input_value)
     
     return Response(
-        jsonify({"value": output_value}),
+        "\{\"value\":{output_value}\}",
         status=200,
         mimetype="application/json"
     )
