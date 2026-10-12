@@ -7,7 +7,7 @@ CORS(app)
 @app.route("/", methods=["GET"])
 def page():
     return "<h1> Oh hi guys </hi>"
-@app.route("/api", methods=["GET"])
+@app.route("/", methods=["GET"])
 def index_get():
     input_value = request.args.get("value", "")
     print(f"GET Received: {input_value}")
