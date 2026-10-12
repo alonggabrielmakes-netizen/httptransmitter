@@ -7,6 +7,16 @@ CORS(app)
 @app.route("/", methods=["GET"])
 def page():
     return "hi"
+@app.route("/api", methods=["GET"])
+def index_get():
+    input_value = request.args.get("value", "")
+    print(f"GET Received: {input_value}")
+    output_value = "".join("1" if c == "0" else "0" for c in input_value)
+    return Response(
+         json.dumps({"value": output_value}),
+         status=200,
+         mimetype="application/json"
+    )
 @app.route("/", methods=["POST", "OPTIONS"])
 def index():
     if request.method == "OPTIONS":
