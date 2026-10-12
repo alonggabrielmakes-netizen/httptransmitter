@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)
 @app.route("/", methods=["GET"])
 def page():
-    return "hi"
+    return "<h1> Oh hi guys </hi>"
 @app.route("/api", methods=["GET"])
 def index_get():
     input_value = request.args.get("value", "")
