@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -16,8 +16,11 @@ def index_get():
 @app.route("/", methods=["POST", "OPTIONS"])
 def index():
     if request.method == "OPTIONS":
-        return "", 200
-    
+      resp = make_response("", 200)
+      resp.headers["Access-Control-Allow-Origin"] = "*"
+      resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+      resp.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        return resp
     input_value = request.form.get("value", "")
     print(f"Received: {input_value}")
     output_value = "".join("1" if c == "0" else "0" for c in input_value)
