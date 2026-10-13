@@ -4,7 +4,7 @@ from flask_cors import CORS #Header
 app = Flask(__name__) #Server
 CORS(app) #Allow Roblox to communicate with us
 
-app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False ###£#
 
 @app.route("/", methods=["GET"])
 def index_get():
