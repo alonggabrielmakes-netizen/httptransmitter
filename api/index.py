@@ -12,6 +12,7 @@ def index_get():
     print(f"GET Received: {input_value}")
     output_value = "".join("1" if c == "0" else "0" for c in input_value)
     resp = jsonify(value=output_value)
+    resp.headers["Access-Control-Allow-Origin"] = "*"
     return resp
 @app.route("/", methods=["POST", "OPTIONS"])
 def index():
