@@ -20,7 +20,7 @@ def index():
       resp.headers["Access-Control-Allow-Origin"] = "*"
       resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
       resp.headers["Access-Control-Allow-Headers"] = "Content-Type"
-        return resp
+      return resp
     input_value = request.form.get("value", "")
     print(f"Received: {input_value}")
     output_value = "".join("1" if c == "0" else "0" for c in input_value)
