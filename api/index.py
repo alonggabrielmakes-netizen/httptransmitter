@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify, make_response
-from flask_cors import CORS
+from flask_cors import CORS #Header
 
-app = Flask(__name__)
-CORS(app)
+app = Flask(__name__) #Server
+CORS(app) #Allow Roblox to communicate with us
 
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
