@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, make_response
-from flask_cors import CORS #Header
+from flask_cors import CORS #Header 
 
 app = Flask(__name__) #Server
 CORS(app) #Allow Roblox to communicate with us
