@@ -24,5 +24,5 @@ def index():
     input_value = request.form.get("value", "")
     print(f"Received: {input_value}")
     output_value = "".join("1" if c == "0" else "0" for c in input_value)
-    return jsonify({"value": output_value})
+    return jsonify(value=output_value)
     
